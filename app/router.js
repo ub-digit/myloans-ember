@@ -6,6 +6,15 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('login');
+
+  this.resource('loans');
+
+  this.resource('requests');
+
+  this.resource('user');
+
+  this.resource('fines');
 });
 
 export default Router;
