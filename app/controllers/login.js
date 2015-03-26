@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
         if (response.authenticated === true) {
           sessionStorage.setItem('username', username);
           sessionStorage.setItem('password', password);
-          that.transitionToRoute('user.loans');
+          that.transitionToRoute('user.checkouts');
         } 
       },
       function(error) {
