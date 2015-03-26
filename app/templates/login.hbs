@@ -1,1 +1,9 @@
-login.hbs{{outlet}}
+<h1>Logga in</h1>
+Username
+{{input type="text" value=username}}
+<br/>
+Password
+{{input type="text" value=password}}
+<br/>
+<button class="btn btn-primary" {{action 'login'}}>Logga in</button>
+{{outlet}}

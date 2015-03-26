@@ -1,2 +1,13 @@
-user.hbs
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+{{#link-to 'user.checkouts'}}checkouts{{/link-to}}<br/>
+{{#link-to 'user.requests'}}requests{{/link-to}}<br/>
+{{#link-to 'user.fines'}}fines{{/link-to}}<br/>
+{{#link-to 'user.info'}}user{{/link-to}}<br/>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-9">
 {{outlet}}
+</div>
+</div>
+</div>
