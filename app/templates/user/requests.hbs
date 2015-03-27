@@ -1,2 +1,75 @@
-requests.hbs
-{{outlet}}
+{{#if pickupRequests}}
+<h1>{{t 'requests.pickup_requests'}}</h1>
+<table class="table">
+  <tr>
+    <th>{{t 'requests.title'}}</th>
+    <th>{{t 'requests.queue'}}</th>
+    <th>{{t 'requests.status'}}</th>
+    <th>{{t 'requests.remove'}}</th>
+  </tr>
+  {{#each request in pickupRequests}}
+  <tr>
+    <td>{{request.title}}<br/>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.pickup_location'}}</strong>
+          </div>
+          <div class='col-xs-9'>
+            {{request.pickup_location}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.expiration_date'}}</strong>
+          </div>
+          <div class="col-xs-9">
+            {{format-date request.expiration_date}}
+          </div>
+        </div>
+      </div>
+    </td>
+    <td>{{request.queue_position}}</td>
+    <td>{{request.statusString}}</td>
+    <td></td>
+  </tr>
+  {{/each}}
+</table>
+{{/if}}
+
+<h1>{{t 'requests.ordered_requests'}}</h1>
+<table class="table">
+  <tr>
+    <th>{{t 'requests.title'}}</th>
+    <th>{{t 'requests.queue'}}</th>
+    <th>{{t 'requests.status'}}</th>
+    <th>{{t 'requests.remove'}}</th>
+  </tr>
+  {{#each request in requests}}
+  <tr>
+   <td>{{request.title}}<br/>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.pickup_location'}}</strong>
+          </div>
+          <div class='col-xs-9'>
+            {{request.pickup_location}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.expiration_date'}}</strong>
+          </div>
+          <div class="col-xs-9">
+            {{format-date request.expiration_date}}
+          </div>
+        </div>
+      </div>
+    </td>
+    <td>{{request.queue_position}}</td>
+    <td>{{request.statusString}}</td>
+    <td></td>
+  </tr>
+  {{/each}}
+</table>

@@ -1,13 +1,13 @@
 <div class="container">
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-{{#link-to 'user.checkouts'}}checkouts{{/link-to}}<br/>
-{{#link-to 'user.requests'}}requests{{/link-to}}<br/>
-{{#link-to 'user.fines'}}fines{{/link-to}}<br/>
-{{#link-to 'user.info'}}user{{/link-to}}<br/>
-</div>
-<div class="col-xs-12 col-sm-8 col-md-9">
-{{outlet}}
-</div>
-</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      {{#link-to 'user.checkouts'}}{{t 'menu.checkouts'}}{{/link-to}}<br/>
+      {{#link-to 'user.requests'}}{{t 'menu.requests'}}{{/link-to}}<br/>
+      {{#link-to 'user.fines'}}{{t 'menu.fines'}}{{/link-to}}<br/>
+      {{#link-to 'user.info'}}{{t 'menu.contactinfo'}}{{/link-to}}<br/>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9">
+      {{outlet}}
+    </div>
+  </div>
 </div>

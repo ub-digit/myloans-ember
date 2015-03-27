@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return {}
+    return {};
   },
   setupController: function(controller, model) {
     // To be able to access from specific controllers

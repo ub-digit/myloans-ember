@@ -12,5 +12,6 @@ var App = Ember.Application.extend({
 });
 
 loadInitializers(App, config.modulePrefix);
+moment.locale('sv');
 
 export default App;

@@ -1,1 +1,42 @@
-checkouts.hbs{{outlet}}
+{{#if delayedCheckouts}}
+<h1>{{t 'checkouts.delayed_checkouts'}}</h1>
+<table class="table">
+  <tr>
+    <th>{{t 'checkouts.title'}}</th>
+    <th>{{t 'checkouts.due_date'}}</th>
+    <th>{{t 'checkouts.recallable_by'}}</th>
+    <th>{{t 'checkouts.status'}}</th>
+    <th>{{t 'checkouts.renew'}}</th>
+  </tr>
+  {{#each checkout in delayedCheckouts}}
+    <tr>
+      <td>{{checkout.title}}</td>
+      <td>{{format-date checkout.due_date}}</td>
+      <td>{{format-date checkout.recallable_date}}</td>
+      <td>{{checkout.statusString}}</td>
+      <td></td>
+    </tr>
+  {{/each}}
+</table>
+{{/if}}
+
+
+<h1>{{t 'checkouts.current_checkouts'}}</h1>
+<table class="table">
+  <tr>
+    <th>{{t 'checkouts.title'}}</th>
+    <th>{{t 'checkouts.due_date'}}</th>
+    <th>{{t 'checkouts.recallable_by'}}</th>
+    <th>{{t 'checkouts.status'}}</th>
+    <th>{{t 'checkouts.renew'}}</th>
+  </tr>
+  {{#each checkout in checkouts}}
+    <tr>
+      <td>{{checkout.title}}</td>
+      <td>{{format-date checkout.due_date}}</td>
+      <td>{{format-date checkout.recallable_date}}</td>
+      <td>{{checkout.statusString}}</td>
+      <td></td>
+    </tr>
+  {{/each}}
+</table>

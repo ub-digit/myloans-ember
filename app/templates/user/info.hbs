@@ -1,1 +1,59 @@
-info.hbs {{outlet}}
+<h1>{{user.name}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <strong>{{t 'user.address'}}:</strong>
+    </div>
+    <div class="col-xs-9">
+      {{user.street}}<br/>
+      {{user.postal_code}} {{user.city}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+      <strong>{{t 'user.phone_nr'}}:</strong>
+    </div>
+    <div class="col-xs-9">
+      {{user.phone_nr}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+      <strong>{{t 'user.mobile_nr'}}:</strong>
+    </div>
+    <div class="col-xs-9">
+      {{user.mobile_nr}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+     <strong>{{t 'user.email'}}:</strong>
+    </div>
+    <div class="col-xs-9">
+      {{user.email}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+     <strong>{{t 'user.communication_preference'}}:</strong>
+    </div>
+    <div class="col-xs-9">
+      {{user.communication_preferenceString}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">
+     <strong>{{t 'user.preferred_language'}}:</strong>
+    </div>
+    <div class="col-xs-9">
+      {{user.preferred_languageString}}
+    </div>
+  </div>
+  <hr/>
+  <strong>{{t 'user.card_nr'}}</strong><br/>
+  {{user.barcode}}<br/>
+  <strong>{{t 'user.expiration_date'}}:</strong><br/>
+  {{format-date user.expiration_date}}<br/>
+  <strong>{{t 'user.user_type'}}:</strong><br/>
+  {{user.patron_type}}
+</div>

@@ -26,9 +26,10 @@ export default Ember.Controller.extend({
         } 
       },
       function(error) {
+        console.log(error);
         sessionStorage.removeItem('username');
         sessionStorage.removeItem('password');
-      })
+      });
     }
   }
 });

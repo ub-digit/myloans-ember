@@ -1,1 +1,19 @@
-fines.hbs{{outlet}}
+<h1>{{t 'fines.fines'}}</h1>
+{{#if fines}}
+<table class="table">
+  <tr>
+    <th>{{t 'fines.title'}}</th>
+    <th>{{t 'fines.type'}}</th>
+    <th>{{t 'fines.added'}}</th>
+    <th>{{t 'fines.amount'}}</th>
+  </tr>
+  {{#each fine in fines}}
+    <tr>
+      <td>{{fine.title}}</td>
+      <td>{{fine.typeString}}</td>
+      <td>{{format-date fine.date}}</td>
+      <td>{{fine.amount}}:-</td>
+    </tr>
+  {{/each}}
+</table>
+{{/if}}

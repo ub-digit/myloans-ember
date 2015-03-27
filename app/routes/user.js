@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import ENV from 'myloans-ember/config/environment';
+import User from 'myloans-ember/models/user';
 
 export default Ember.Route.extend({
   beforeModel: function() {
@@ -23,13 +24,14 @@ export default Ember.Route.extend({
         },
         contentType: 'application/json'
       }).then(function(response) {
-        return response;
+        return User.create(response.user);
       },
       function(error) {
+        console.log(error);
         sessionStorage.removeItem('username');
         sessionStorage.removeItem('password');
         that.transitionTo('login');
-      })
+      });
   },
   setupController: function(controller, model) {
     // To be able to access from specific controllers
