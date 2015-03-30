@@ -31,7 +31,8 @@
     </td>
     <td>{{request.queue_position}}</td>
     <td>{{request.statusString}}</td>
-    <td></td>
+    <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+</button></td>
   </tr>
   {{/each}}
 </table>
@@ -69,7 +70,8 @@
     </td>
     <td>{{request.queue_position}}</td>
     <td>{{request.statusString}}</td>
-    <td><button {{action 'cancelRequest' request.id}}>Delete</button></td>
+    <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+</button></td>
   </tr>
   {{/each}}
 </table>
