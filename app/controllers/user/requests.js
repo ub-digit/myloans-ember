@@ -24,24 +24,29 @@ export default Ember.Controller.extend({
         return;
       }
 
-      Ember.$.ajax({
-        type: 'DELETE',
-        url: ENV.APP.serviceURL + '/users/cancel_request',
-        data: JSON.stringify({
-          username: username,
-          password: password,
-          request_id: requestId
-        }),
-        contentType: 'application/json',
-        dataType: 'json'
-      }).then(function(response) {
-        if (response.success === true) {
-          that.get('controllers.user.model.requests').removeObject(request_object);
-        } 
-      },
-      function(error) {
-        console.log(error);
-      });
+      var should_delete = confirm(Ember.I18n.t("requests.confirm_delete") + ' ' + request_object.title);
+
+      if (should_delete) {
+
+        Ember.$.ajax({
+          type: 'DELETE',
+          url: ENV.APP.serviceURL + '/users/cancel_request',
+          data: JSON.stringify({
+            username: username,
+            password: password,
+            request_id: requestId
+          }),
+          contentType: 'application/json',
+          dataType: 'json'
+        }).then(function(response) {
+          if (response.success === true) {
+            that.get('controllers.user.model.requests').removeObject(request_object);
+          } 
+        },
+        function(error) {
+          console.log(error);
+        });
+      }
     }
   }
 });

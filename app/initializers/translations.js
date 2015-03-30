@@ -56,7 +56,8 @@ var TRANSLATIONS = {
         pickup: "För hämtning",
         pending: "Beställd",
         intransit: "Beställd"
-      }
+      },
+      confirm_delete: "Är du säker på att du vill radera beställningen?"
     },
     fines: {
       fines: "Förseningsavgifter",
