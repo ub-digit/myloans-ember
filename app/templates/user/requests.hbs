@@ -1,62 +1,74 @@
-{{#if pickupRequests}}
-<h1>{{t 'requests.pickup_requests'}}</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>{{t 'requests.title'}}</th>
-      <th>{{t 'requests.queue'}}</th>
-      <th>{{t 'requests.status'}}</th>
-      <th>{{t 'requests.remove'}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each request in pickupRequests}}
-    <tr>
-      <td>{{request.title}}<br/>
-        <div class="container">
+
+
+<div class="visible-xs hidden-sm">
+  {{#if pickupRequests}}
+  <h1>{{t 'requests.pickup_requests'}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{t 'requests.title'}}</th>
+        <th>{{t 'requests.status'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each request in pickupRequests}}
+      <tr>
+        <td>{{request.title}}<br/>
           <div class="row">
-            <div class="col-xs-3">
+            <div class="col-xs-4">
               <strong>{{t 'requests.pickup_location'}}</strong>
             </div>
-            <div class='col-xs-9'>
+            <div class='col-xs-8'>
               {{request.pickup_location}}
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-3">
+            <div class="col-xs-4">
               <strong>{{t 'requests.expiration_date'}}</strong>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-8">
               {{format-date request.expiration_date}}
             </div>
           </div>
-        </div>
-      </td>
-      <td>{{request.queue_position}}</td>
-      <td>{{request.statusString}}</td>
-      <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
-      </button></td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-{{/if}}
+          {{#if request.queue_position}}
+          <div class="row">
+            <div class="col-xs-4">
+              <strong>{{t 'requests.queue'}}</strong>
+            </div>
+            <div class="col-xs-8">
+              {{request.queue_position}}
+            </div>
+          </div>
+          {{/if}}
 
-<h1>{{t 'requests.ordered_requests'}}</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>{{t 'requests.title'}}</th>
-      <th>{{t 'requests.queue'}}</th>
-      <th>{{t 'requests.status'}}</th>
-      <th>{{t 'requests.remove'}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each request in requests}}
-    <tr>
-     <td>{{request.title}}<br/>
-      <div class="container">
+        
+        </td>
+        <td>{{request.statusString}}</td>
+        
+      </tr>
+      <tr><td colspan="2">
+        <button class="btn btn-primary pull-right" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i></button>
+      </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+
+  <h1>{{t 'requests.ordered_requests'}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{t 'requests.title'}}</th>
+        <th>{{t 'requests.queue'}}</th>
+        <th>{{t 'requests.status'}}</th>
+        <th>{{t 'requests.remove'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each request in requests}}
+      <tr>
+       <td>{{request.title}}<br/>
         <div class="row">
           <div class="col-xs-3">
             <strong>{{t 'requests.pickup_location'}}</strong>
@@ -73,13 +85,189 @@
             {{format-date request.expiration_date}}
           </div>
         </div>
-      </div>
-    </td>
-    <td>{{request.queue_position}}</td>
-    <td>{{request.statusString}}</td>
-    <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
-    </button></td>
-  </tr>
-  {{/each}}
-</tbody>
+      </td>
+      <td>{{request.queue_position}}</td>
+      <td>{{request.statusString}}</td>
+      <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+      </button></td>
+    </tr>
+    {{/each}}
+  </tbody>
 </table>
+</div>
+
+<div class="hidden-xs visible-sm hidden-md">
+  {{#if pickupRequests}}
+  <h1>{{t 'requests.pickup_requests'}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{t 'requests.title'}}</th>
+        <th>{{t 'requests.status'}}</th>
+        <th>{{t 'requests.remove'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each request in pickupRequests}}
+      <tr>
+        <td>{{request.title}}<br/>
+          <div class="row">
+            <div class="col-xs-4">
+              <strong>{{t 'requests.pickup_location'}}</strong>
+            </div>
+            <div class='col-xs-8'>
+              {{request.pickup_location}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <strong>{{t 'requests.expiration_date'}}</strong>
+            </div>
+            <div class="col-xs-8">
+              {{format-date request.expiration_date}}
+            </div>
+          </div>
+          {{#if request.queue_position}}
+          <div class="row">
+            <div class="col-xs-4">
+              <strong>{{t 'requests.queue'}}</strong>
+            </div>
+            <div class="col-xs-8">
+              {{request.queue_position}}
+            </div>
+          </div>
+          {{/if}}
+        </td>
+        <td>{{request.statusString}}</td>
+        <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+        </button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+
+  <h1>{{t 'requests.ordered_requests'}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{t 'requests.title'}}</th>
+        <th>{{t 'requests.queue'}}</th>
+        <th>{{t 'requests.status'}}</th>
+        <th>{{t 'requests.remove'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each request in requests}}
+      <tr>
+       <td>{{request.title}}<br/>
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.pickup_location'}}</strong>
+          </div>
+          <div class='col-xs-9'>
+            {{request.pickup_location}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.expiration_date'}}</strong>
+          </div>
+          <div class="col-xs-9">
+            {{format-date request.expiration_date}}
+          </div>
+        </div>
+      </td>
+      <td>{{request.queue_position}}</td>
+      <td>{{request.statusString}}</td>
+      <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+      </button></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+<div class="hidden-xs visible-md visible-lg">
+  {{#if pickupRequests}}
+  <h1>{{t 'requests.pickup_requests'}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{t 'requests.title'}}</th>
+        <th>{{t 'requests.queue'}}</th>
+        <th>{{t 'requests.status'}}</th>
+        <th>{{t 'requests.remove'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each request in pickupRequests}}
+      <tr>
+        <td>{{request.title}}<br/>
+          <div class="row">
+            <div class="col-xs-3">
+              <strong>{{t 'requests.pickup_location'}}</strong>
+            </div>
+            <div class='col-xs-9'>
+              {{request.pickup_location}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <strong>{{t 'requests.expiration_date'}}</strong>
+            </div>
+            <div class="col-xs-9">
+              {{format-date request.expiration_date}}
+            </div>
+          </div>
+        </td>
+        <td>{{request.queue_position}}</td>
+        <td>{{request.statusString}}</td>
+        <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+        </button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+
+  <h1>{{t 'requests.ordered_requests'}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{t 'requests.title'}}</th>
+        <th>{{t 'requests.queue'}}</th>
+        <th>{{t 'requests.status'}}</th>
+        <th>{{t 'requests.remove'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each request in requests}}
+      <tr>
+       <td>{{request.title}}<br/>
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.pickup_location'}}</strong>
+          </div>
+          <div class='col-xs-9'>
+            {{request.pickup_location}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <strong>{{t 'requests.expiration_date'}}</strong>
+          </div>
+          <div class="col-xs-9">
+            {{format-date request.expiration_date}}
+          </div>
+        </div>
+      </td>
+      <td>{{request.queue_position}}</td>
+      <td>{{request.statusString}}</td>
+      <td><button class="btn btn-primary" {{action 'cancelRequest' request.id}}><i class="fa fa-times"></i>
+      </button></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

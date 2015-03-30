@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
-      {{#link-to 'user.checkouts'}}{{t 'menu.checkouts'}}{{/link-to}}<br/>
-      {{#link-to 'user.requests'}}{{t 'menu.requests'}}{{/link-to}}<br/>
-      {{#link-to 'user.fines'}}{{t 'menu.fines'}}{{/link-to}}<br/>
-      {{#link-to 'user.info'}}{{t 'menu.contactinfo'}}{{/link-to}}<br/>
-      <button class="btn" {{action logout}}>{{t 'menu.logout'}}</button>
+    <div class="list-group">
+      {{#link-to 'user.checkouts' class='list-group-item'}}{{t 'menu.checkouts'}}{{/link-to}}
+      {{#link-to 'user.requests' class='list-group-item'}}{{t 'menu.requests'}}{{/link-to}}
+      {{#link-to 'user.fines' class='list-group-item'}}{{t 'menu.fines'}}{{/link-to}}
+      {{#link-to 'user.info' class='list-group-item'}}{{t 'menu.contactinfo'}}{{/link-to}}
+      <a class="list-group-item" {{action logout}}>{{t 'menu.logout'}}</a>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-9">
       {{outlet}}

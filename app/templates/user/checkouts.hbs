@@ -1,3 +1,45 @@
+<h1>{{t 'checkouts.current_checkouts'}}</h1>
+<div class="row">
+  <div class="col-xs-7 col-sm-8 col-md-5">
+    <strong>{{t 'checkouts.title'}}</strong>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-2">
+    <strong>{{t 'checkouts.due_date'}}</strong>
+  </div>
+  <div class="col-md-2 hidden-sm hidden-xs">
+    <strong>{{t 'checkouts.recallable_by'}}</strong>
+  </div>
+  <div class="col-md-2 hidden-sm hidden-xs">
+    <strong>{{t 'checkouts.status'}}</strong>
+  </div>
+  <div class="col-xs-2 col-sm-1 col-md-1">
+    <!-- renew -->
+  </div>
+</div>
+
+{{#each checkout in checkouts}}
+<div class="row">
+  <div class="col-xs-7 col-sm-8 col-md-5">
+    {{checkout.title}}
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-2">
+    {{format-date checkout.due_date}}
+  </div>
+  <div class="col-xs-2 col-md-1 col-sm-1 pull-right">
+    <button class="btn btn-primary"><i class="fa fa-undo"></i>
+</button>
+  </div>
+  <div class="col-xs-7 col-md-2 col-sm-7">
+    <span class="visible-xs-inline visible-sm-inline"><strong>{{t 'checkouts.recallable_by'}}: </strong></span>{{format-date checkout.recallable_by}}
+  </div>
+  <div class="col-xs-7 col-md-2 col-sm-7">
+    <span class="visible-xs-inline visible-sm-inline"><strong>{{t 'checkouts.status'}}: </strong></span>{{checkout.statusString}}
+  </div>
+  
+</div>
+<hr/>
+{{/each}}
+
 {{#if delayedCheckouts}}
 <h1>{{t 'checkouts.delayed_checkouts'}}</h1>
 <table class="table">

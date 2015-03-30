@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
         return;
       }
 
-      var should_delete = confirm(Ember.I18n.t("requests.confirm_delete") + ' ' + request_object.title);
+      var should_delete = confirm(Ember.I18n.t("requests.confirm_delete") + ' (' + request_object.title + ')');
 
       if (should_delete) {
 
