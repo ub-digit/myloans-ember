@@ -24,7 +24,8 @@ var TRANSLATIONS = {
       checkouts: "Lånade",
       requests: "Beställda",
       fines: "Förseningsavgifter",
-      contactinfo: "Kontaktuppgifter"
+      contactinfo: "Kontaktuppgifter",
+      logout: "Logga ut"
     },
     checkouts: {
       title: "Titel",

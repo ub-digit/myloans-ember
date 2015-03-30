@@ -10,5 +10,12 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     // To be able to access from specific controllers
     controller.set('model', model);
+  },
+  actions: {
+    logout: function() {
+      sessionStorage.removeItem('username');
+      sessionStorage.removeItem('password');
+      this.transitionTo('login');
+    }
   }
 });

@@ -69,7 +69,7 @@
     </td>
     <td>{{request.queue_position}}</td>
     <td>{{request.statusString}}</td>
-    <td></td>
+    <td><button {{action 'cancelRequest' request.id}}>Delete</button></td>
   </tr>
   {{/each}}
 </table>
