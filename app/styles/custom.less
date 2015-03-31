@@ -1,0 +1,36 @@
+
+
+.header-item {
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+}
+
+.loan-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed #ccc;
+  .title {
+    color: @brand-primary;
+    margin-bottom: 3px;
+  }
+  .notes {
+    font-size: 11px;
+    .name {
+      font-weight:bold;
+      position:absolute;
+    }
+    .value {
+      padding-left:100px;
+      display:block;
+    }
+    .responsive {
+      @media (min-width: @screen-md-min) {
+        font-size:14px;
+        padding-left:0;
+      }
+    }
+  }
+}
+.sum-item {
+  margin-top: 5px;
+  font-weight: bold;
+}

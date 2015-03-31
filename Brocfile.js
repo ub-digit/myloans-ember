@@ -18,7 +18,7 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('bower_components/ember-i18n/lib/i18n.js');
-app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+//app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 app.import("bower_components/moment/moment.js");

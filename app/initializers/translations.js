@@ -35,6 +35,7 @@ var TRANSLATIONS = {
       recallable_by: "Kravbar",
       status: "Status",
       renew: "Förnya",
+      barcode: "Streckkod",
       statuses: {
         checkedOut: 'Lånad',
         overdue: 'Försenad',
@@ -65,12 +66,15 @@ var TRANSLATIONS = {
       type: "Typ av avgift",
       added: "Tillagd",
       amount: "Belopp",
+      total_fine: "Summa",
       types: {
         billed_overdue: "Räkning",
         checked_out_overdue: "Försenad",
         late_renewal: "Förnyad för sent",
         late_return: "Återlämnad för sent",
-        processing_fee: "Arbetskostnad"
+        processing_fee: "Arbetskostnad",
+        overdue: "Försenad",
+        recalled_overdue: "Försenad"
       }
     },
     user: {

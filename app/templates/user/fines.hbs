@@ -1,23 +1,34 @@
-<h1>{{t 'fines.fines'}}</h1>
+<h2>{{t 'fines.fines'}}</h2>
 {{#if fines}}
-<table class="table">
-  <thead>
-    <tr>
-      <th>{{t 'fines.title'}}</th>
-      <th>{{t 'fines.type'}}</th>
-      <th>{{t 'fines.added'}}</th>
-      <th>{{t 'fines.amount'}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each fine in fines}}
-    <tr>
-      <td>{{fine.title}}</td>
-      <td>{{fine.typeString}}</td>
-      <td>{{format-date fine.date}}</td>
-      <td>{{fine.amount}}:-</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-unstyled">
+      <li class="header-item">
+        <div class="row">
+          <div class="col-xs-9 col-sm-9"><strong>{{t 'fines.title'}}</strong></div>          
+          <div class="col-xs-3 col-sm-3"><strong>{{t 'fines.amount'}}</strong></div>
+        </div>
+      </li>
+      {{#each fine in fines}}
+      <li class="loan-item">
+        <div class="row">
+          <div class="col-xs-9 col-sm-9">
+            <div>
+              <div class="title">{{fine.title}}</div>              
+              <div class="notes"><span class="name">{{t 'fines.type'}}</span><span class="value">{{fine.typeString}}</span></div>
+              <div class="notes"><span class="name">{{t 'fines.added'}}</span><span class="value">{{format-date fine.date}}</span></div>
+            </div>
+          </div>           
+          <div class="col-xs-3 col-sm-3">{{fine.amount}} SEK</div>
+        </div>
+      </li>      
+      {{/each}}
+      <li class="sum-item">
+        <div class="row">
+          <div class="col-xs-3 col-sm-3 col-xs-offset-9 col-sm-offset-9"><span class="hidden-xs">{{t 'fines.total_fine'}}: </span>{{user.total_fine}} SEK</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 {{/if}}

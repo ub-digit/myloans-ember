@@ -5,5 +5,9 @@ export default Ember.Controller.extend({
   
   fines: function() {
     return this.get('controllers.user.model.fines');
-  }.property('controllers.user.model.fines')
+  }.property('controllers.user.model.fines'),
+  
+  user: function() {
+    return this.get('controllers.user.model');
+  }.property('controllers.user.model')
 });

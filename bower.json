@@ -17,5 +17,8 @@
     "moment": "~2.9.0",
     "bootstrap": "~3.3.0",
     "ember-i18n": "~2.2.2"
+  },
+  "devDependencies": {
+    "bootstrap": "~3.3.4"
   }
 }
