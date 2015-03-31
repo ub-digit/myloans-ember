@@ -42,6 +42,12 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+  if (environment === 'production-demo') {
+  
+  }
+  if (environment === 'production-test') {
+ 
+  }
 
   return ENV;
 };
