@@ -4,8 +4,99 @@ var TRANSLATIONS = {
   en: {
     other_lang: 'sv',
     main: {
-      title: "Ember Demo Application",
-      description: "Write description text here"
+      title: "My loans",
+      description: "My loans - Gothenburg University Library"
+    },
+    login: {
+      title: "Log in",
+      username: "User name",
+      password: "Password",
+      login_action: "Log in"
+    },
+    menu: {
+      checkouts: "Checked Out",
+      requests: "Requests",
+      fines: "Account",
+      contactinfo: "Contact",
+      logout: "Logout",
+      delayeds_info: "Overdue",
+      pickups_info: "Pick-up"
+    },
+    checkouts: {
+      title: "Title",
+      delayed_checkouts: "Overdue", //kolla
+      current_checkouts: "Checked Out", //kolla
+      due_date: "Due Date",
+      recallable_by: "Recallable Date",
+      status: "Status",
+      renew: "Renew",
+      barcode: "Barcode",
+      statuses: {
+        checkedOut: 'Checked Out',
+        overdue: 'Overdue',
+        billed: 'Billed',
+        recall: 'Requested',
+        recallOverdue: 'Overdue/Requested'
+      }
+    },
+    requests: {
+      pickup_requests: "Pick-up",
+      ordered_requests: "Requests", //Kolla
+      title: "Title",
+      queue: "Place in Queue",
+      status: "Status",
+      remove: "Cancel", //Eller remove?
+      pickup_location: "Pick-up Location",
+      expiration_date: "Last needed date",
+      statuses: {
+        pickup: "Pick-up",
+        pending: "Pending",
+        intransit: "Pending" //?
+      },
+      confirm_delete: "Are you sure you want to cancel the request?" //Hittat på
+    },
+    fines: {
+      fines: "Account",
+      title: "Title",
+      type: "Fee Type",
+      added: "Posted",
+      amount: "Balance",
+      total_fine: "Total Balance", //Summa?
+      types: {
+        billed_overdue: "Billed",
+        checked_out_overdue: "Overdue",
+        late_renewal: "Late Renewal",
+        late_return: "Late Return",
+        processing_fee: "Processing Fee",
+        overdue: "Overdue",
+        recalled_overdue: "Overdue"
+      }
+    },
+    user: {
+      address: "Address",
+      phone_nr: "Telephone",
+      mobile_nr: "Cell Phone",
+      email: "E-mail",
+      communication_preference: "Communication Preference",
+      preferred_language: "Preferred Language",
+      communication_preferences: {
+        0: "Paper",
+        1: "E-mail",
+        2: "Text msg",
+        3: "Text msg and E-mail"
+      },
+      languages: {
+        swe: "Swedish",
+        eng: "English"
+      },
+      card_nr: "GU card/library card number",
+      expiration_date: "Expiration Date",
+      user_type: "Patron Type"
+      street: "Street",
+      postal_code: "Postal code",
+      city: "City",
+      phones: "Phone numbers and e-mail",
+      communication: "Communication from the library"
     }
   },
   sv: {
@@ -23,9 +114,11 @@ var TRANSLATIONS = {
     menu: {
       checkouts: "Lånade",
       requests: "Beställda",
-      fines: "Förseningsavgifter",
+      fines: "Förseningar",
       contactinfo: "Kontaktuppgifter",
-      logout: "Logga ut"
+      logout: "Logga ut",
+      delayeds_info: "försenade",
+      pickups_info: "för hämtning"
     },
     checkouts: {
       title: "Titel",
@@ -96,7 +189,15 @@ var TRANSLATIONS = {
       },
       card_nr: "Kortnummer",
       expiration_date: "Ditt kort är giltigt till",
-      user_type: "Låntagarkategori"
+      user_type: "Låntagarkategori",
+      street: "Gatuadress",
+      postal_code: "Postnummer",
+      city: "Ort",
+      phones: "Telefonnummer och e-post",
+      communication: "Kommunikation från biblioteket",
+      save: "Spara",
+      cancel: "Avbryt",
+      edit: "Ändra"
     }
   }
 };

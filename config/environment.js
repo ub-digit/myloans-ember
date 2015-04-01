@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'myloans-ember',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -42,8 +42,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.serviceURL = 'https://myloans-server.ub.gu.se/v1';
   }
-
-  return ENV;
+  if (environment === 'production-demo') {
+    ENV.APP.serviceURL = 'https://myloans-server-demo.ub.gu.se/v1';
+  }
+  if (environment === 'production-test') {
+   ENV.APP.serviceURL = 'https://myloans-server-test.ub.gu.se/v1';
+ }
+ return ENV;
 };

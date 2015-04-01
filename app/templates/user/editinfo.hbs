@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <h2>{{user.name}}</h2>
+    <form class="form-horizontal">
+      <h3>{{t 'user.address'}}</h3>
+      <div class="form-group">
+        <label for="street-adress" class="col-md-3 control-label">{{t 'user.street'}}:</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="street-adress" placeholder="Gatuadress">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="postal-code" class="col-md-3 control-label">{{t 'user.postal_code'}}:</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="postal-code" placeholder="Postnummer">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city" class="col-md-3 control-label">{{t 'user.city'}}:</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="city" placeholder="Ort">
+        </div>
+      </div>
+
+      <h3>{{t 'user.phones'}}</h3>
+      <div class="form-group">
+        <label for="phone-number" class="col-md-3 control-label">{{t 'user.phone_nr'}}:</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="phone-number" placeholder="Telefonnummer">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile-number" class="col-md-3 control-label">{{t 'user.mobile_nr'}}:</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="mobile-number" placeholder="Mobilnummer"> 
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="col-md-3 control-label">{{t 'user.email'}}:</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="email" placeholder="E-post">
+        </div>
+      </div>
+      <h3>{{t 'user.communication'}}</h3>
+      <div class="form-group">
+        <div class="col-sm-8">
+          <label for="communication-preference">{{t 'user.communication_preference'}}:</label>
+          <select class="form-control" id="communication-preference">
+            <option>{{t 'user.communication_preferences.0'}}</option>
+            <option>SMS</option>
+            <option>E-post</option>
+            <option>SMS och e-post</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-8">
+          <label for="prefered-language">{{t 'user.preferred_language'}}:</label>
+          <select class="form-control" id="prefered-language">
+            <option>Svenska</option>
+            <option>Engelska</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-success" {{action updateContactInfo}} type="button">{{t 'user.save'}}</button>
+      <button class="btn btn-link" {{action cancelEdit}} type="button">{{t 'user.cancel'}}</button>
+    </form>
+  </div>
+</div>
+

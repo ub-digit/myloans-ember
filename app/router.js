@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('requests');
     this.route('fines');
     this.route('info');
+    this.route('editinfo');
   });
 
 });
