@@ -71,7 +71,7 @@
         </div>
       </div>
 
-      <button {{bind-attr class=":btn :btn-success model.isValid:btn-success:btn-disabled"}} {{action 'save'}} type="button">{{t 'user.save'}}</button>
+      <button class="btn btn-success" {{bind-attr disabled="model.inValid"}} {{action 'save'}} type="button">{{t 'user.save'}}</button>
       <button class="btn btn-link" {{action 'cancelEdit'}} type="button">{{t 'user.cancel'}}</button>
 
     </form>

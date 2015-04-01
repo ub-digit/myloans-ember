@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-xs-8 col-md-7">
             <div>
-              <div class="title">{{request.title}}</div>
+              <div {{bind-attr class=":title request.isCollapsed:collapsed"}}><a href=""{{action 'toggleCollapsed' request}}>{{request.title}}</a></div>
               <div class="notes"><span class="name">{{t 'requests.pickup_location'}}</span><span class="value">{{request.pickup_location}}</span></div>
               <div class="notes"><span class="name">{{t 'requests.expiration_date'}}</span><span class="value">{{format-date request.expiration_date}}</span></div>
             </div>
@@ -53,7 +53,7 @@
         <div class="row">
           <div class="col-xs-8 col-md-7">
             <div>
-              <div class="title">{{request.title}}</div>
+              <div {{bind-attr class=":title request.isCollapsed:collapsed"}}><a href=""{{action 'toggleCollapsed' request}}>{{request.title}}</a></div>
               <div class="notes"><span class="name">{{t 'requests.pickup_location'}}</span><span class="value">{{request.pickup_location}}</span></div>
               <div class="notes"><span class="name">{{t 'requests.expiration_date'}}</span><span class="value">{{format-date request.expiration_date}}</span></div>
             </div>

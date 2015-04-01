@@ -47,6 +47,10 @@ export default Ember.Controller.extend({
           console.log(error);
         });
       }
+    },
+
+    toggleCollapsed: function(obj) {
+      obj.toggleProperty('collapsed');
     }
   }
 });

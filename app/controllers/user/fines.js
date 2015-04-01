@@ -9,5 +9,11 @@ export default Ember.Controller.extend({
   
   user: function() {
     return this.get('controllers.user.model');
-  }.property('controllers.user.model')
+  }.property('controllers.user.model'),
+
+  actions: {
+    toggleCollapsed: function(obj) {
+      obj.toggleProperty('collapsed');
+    }
+  }
 });

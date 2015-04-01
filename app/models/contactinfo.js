@@ -64,8 +64,8 @@ export default Ember.Object.extend({
     return null;
   }.property('isValidEmail', 'isValidMobileNr', 'communication_preference_id'),
   
-  isValid: function() {
-    return this.get('isValidCity') && this.get('isValidStreet') && this.get('isValidPostalCode') && this.get('isValidMobileNr') && this.get('isValidEmail');
+  inValid: function() {
+    return !(this.get('isValidCity') && this.get('isValidStreet') && this.get('isValidPostalCode') && this.get('isValidMobileNr') && this.get('isValidEmail'));
 
   }.property('street', 'postal_code', 'city', 'mobile_nr', 'communication_preference_id', 'email', 'preferred_language')
 });
