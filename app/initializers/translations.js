@@ -110,9 +110,10 @@ var TRANSLATIONS = {
     }, 
     login: {
       title: "Logga in",
-      username: "Användarnamn",
-      password: "Lösenord",
-      login_action: "Logga in"
+      username: "Lånekortsnummer",
+      password: "Personnummer",
+      login_action: "Logga in",
+      info: "Logga in för att se dina lån och förseningsavgifter. Här kan du också  hantera dina kontaktuppgifter. "
     },
     menu: {
       checkouts: "Lånade",
