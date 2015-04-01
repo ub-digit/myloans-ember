@@ -37,7 +37,10 @@ var TRANSLATIONS = {
         billed: 'Billed',
         recall: 'Requested',
         recallOverdue: 'Overdue/Requested'
-      }
+      },
+      confirm_renew: "Are you sure you want to renew the checkout?", // ?
+      renew_success: "Checkout renewed.", // ?
+      renew_error: "Checkout renewal error." // ?
     },
     requests: {
       pickup_requests: "Pick-up",
@@ -135,7 +138,10 @@ var TRANSLATIONS = {
         billed: 'Räkning',
         recall: 'Kö finns',
         recallOverdue: 'Försenad/Kö finns'
-      }
+      },
+      confirm_renew: "Är du säker på att du vill förnya lånet?",
+      renew_success: "Lånet förnyades.",
+      renew_error: "Förnyande av lån misslyckades."
     },
     requests: {
       pickup_requests: "För hämtning",
