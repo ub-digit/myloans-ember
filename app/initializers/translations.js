@@ -37,7 +37,10 @@ var TRANSLATIONS = {
         billed: 'Billed',
         recall: 'Requested',
         recallOverdue: 'Overdue/Requested'
-      }
+      },
+      confirm_renew: "Are you sure you want to renew the checkout?", // ?
+      renew_success: "Checkout renewed.", // ?
+      renew_error: "Checkout renewal error." // ?
     },
     requests: {
       pickup_requests: "Pick-up",
