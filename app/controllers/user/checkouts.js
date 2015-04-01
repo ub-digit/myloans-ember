@@ -10,4 +10,5 @@ export default Ember.Controller.extend({
   delayedCheckouts: function() {
     return this.get('controllers.user.model.delayedCheckouts');
   }.property('controllers.user.model.delayedCheckouts')
+
 });

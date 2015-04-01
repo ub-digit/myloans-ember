@@ -91,7 +91,7 @@ var TRANSLATIONS = {
       },
       card_nr: "GU card/library card number",
       expiration_date: "Expiration Date",
-      user_type: "Patron Type"
+      user_type: "Patron Type",
       street: "Street",
       postal_code: "Postal code",
       city: "City",
@@ -197,10 +197,18 @@ var TRANSLATIONS = {
       communication: "Kommunikation från biblioteket",
       save: "Spara",
       cancel: "Avbryt",
-      edit: "Ändra"
+      edit: "Ändra",
+      errors: {
+        email: "Du måste ange en giltig e-post adress",
+        mobile: "Du måste ange ett giltigt mobilnummer",
+        email_and_mobile: "Du måste ange en giltig e-post och mobilnummer"
+      }
     }
   }
 };
+
+// Adds support for translatable properties, i.e. placeholderTranslation='key'
+Ember.View.reopen(Em.I18n.TranslateableAttributes);
 
 // Initializes language support
 var i18nInitializer = {

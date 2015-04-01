@@ -1,24 +1,24 @@
 <div class="row">
   <div class="col-xs-12 col-md-8">
-    <h2>{{user.name}}</h2>
+    <h2>{{model.name}}</h2>
     <form class="form-horizontal">
       <h3>{{t 'user.address'}}</h3>
-      <div class="form-group">
+      <div {{bind-attr class=":form-group model.isValidStreet::has-error"}}>
         <label for="street-adress" class="col-md-3 control-label">{{t 'user.street'}}:</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="street-adress" placeholder="Gatuadress">
+          {{input value=model.street type="text" class="form-control" id="street-adress" placeholderTranslation='user.street' }}
         </div>
       </div>
-      <div class="form-group">
+      <div {{bind-attr class=":form-group model.isValidPostalCode::has-error"}}>
         <label for="postal-code" class="col-md-3 control-label">{{t 'user.postal_code'}}:</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="postal-code" placeholder="Postnummer">
+          {{input value=model.postal_code type="text" class="form-control" id="postal-code" placeholderTranslation='user.postal_code' }}
         </div>
       </div>
-      <div class="form-group">
+      <div {{bind-attr class=":form-group model.isValidCity::has-error"}}>
         <label for="city" class="col-md-3 control-label">{{t 'user.city'}}:</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="city" placeholder="Ort">
+          {{input value=model.city type="text" class="form-control" id="city" placeholderTranslation='user.city' }}
         </div>
       </div>
 
@@ -26,33 +26,40 @@
       <div class="form-group">
         <label for="phone-number" class="col-md-3 control-label">{{t 'user.phone_nr'}}:</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="phone-number" placeholder="Telefonnummer">
+          {{input value=model.phone_nr type="text" class="form-control" id="phone-number" placeholderTranslation='user.phone_nr'}}
         </div>
       </div>
-      <div class="form-group">
+      <div {{bind-attr class=":form-group model.isValidMobileNr::has-error"}}>
         <label for="mobile-number" class="col-md-3 control-label">{{t 'user.mobile_nr'}}:</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="mobile-number" placeholder="Mobilnummer"> 
+          {{input value=model.mobile_nr type="text" class="form-control" id="mobile-number" placeholderTranslation='user.mobile_nr'}} 
         </div>
       </div>
-      <div class="form-group">
+      <div {{bind-attr class=":form-group model.isValidEmail::has-error"}}>
         <label for="email" class="col-md-3 control-label">{{t 'user.email'}}:</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="email" placeholder="E-post">
+          {{input value=model.email type="text" class="form-control" id="email" placeholderTranslation='user.email'}}
         </div>
       </div>
       <h3>{{t 'user.communication'}}</h3>
       <div class="form-group">
         <div class="col-sm-8">
           <label for="communication-preference">{{t 'user.communication_preference'}}:</label>
-          <select class="form-control" id="communication-preference">
-            <option>{{t 'user.communication_preferences.0'}}</option>
-            <option>SMS</option>
-            <option>E-post</option>
-            <option>SMS och e-post</option>
-          </select>
+          {{view "select"
+          classNames='form-control' 
+          content=communicationPrefs
+          optionValuePath="content.value"
+          optionLabelPath="content.label"
+          value=model.communication_preference_id}}
         </div>
       </div>
+      
+      {{#if model.communicationValidationMessage}}
+      <div class="alert alert-danger">
+        {{model.communicationValidationMessage}}
+        </div>
+      {{/if}}
+      
 
       <div class="form-group">
         <div class="col-sm-8">
@@ -64,8 +71,9 @@
         </div>
       </div>
 
-      <button class="btn btn-success" {{action updateContactInfo}} type="button">{{t 'user.save'}}</button>
-      <button class="btn btn-link" {{action cancelEdit}} type="button">{{t 'user.cancel'}}</button>
+      <button {{bind-attr class=":btn :btn-success model.isValid:btn-success:btn-disabled"}} {{action 'save'}} type="button">{{t 'user.save'}}</button>
+      <button class="btn btn-link" {{action 'cancelEdit'}} type="button">{{t 'user.cancel'}}</button>
+
     </form>
   </div>
 </div>
