@@ -91,7 +91,7 @@ var TRANSLATIONS = {
       },
       card_nr: "GU card/library card number",
       expiration_date: "Expiration Date",
-      user_type: "Patron Type"
+      user_type: "Patron Type",
       street: "Street",
       postal_code: "Postal code",
       city: "City",
