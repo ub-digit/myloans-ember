@@ -13,12 +13,9 @@ export default Ember.Controller.extend({
   }.property('controllers.user.model.delayedCheckouts'),
 
   actions: {
-<<<<<<< HEAD
     toggleCollapsed: function(obj) {
       obj.toggleProperty('collapsed');
-    }
-  }
-=======
+    },
     renew: function(checkoutId) {
       var that = this;
       var username = sessionStorage.getItem('username');
@@ -68,6 +65,4 @@ export default Ember.Controller.extend({
     }
   }
 
-
->>>>>>> master
 });

@@ -214,7 +214,7 @@ var TRANSLATIONS = {
 };
 
 // Adds support for translatable properties, i.e. placeholderTranslation='key'
-Ember.View.reopen(Em.I18n.TranslateableAttributes);
+Ember.View.reopen(Ember.I18n.TranslateableAttributes);
 
 // Initializes language support
 var i18nInitializer = {

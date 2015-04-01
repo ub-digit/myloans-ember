@@ -64,7 +64,7 @@
               <span class="name visible-xs-inline visible-sm-inline">{{t 'requests.status'}}:</span><span class="value responsive">{{request.statusString}}</span>
             </div>
           </div>
-          <div class="col-xs-12 col-md-1"><a class="btn btn-primary pull-right" href="#" role="button"><i class="fa fa-times"></i></a></div>
+          <div class="col-xs-12 col-md-1"><a class="btn btn-primary pull-right" {{action 'cancelRequest' request.id}} role="button"><i class="fa fa-times"></i></a></div>
         </div>
       </li>
       {{/each}}
