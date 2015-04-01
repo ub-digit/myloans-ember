@@ -1,3 +1,10 @@
+{{#if message}}
+  <div class="alert alert-info">{{message}}</div>
+{{/if}}
+{{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
 {{#if delayedCheckouts}}
 <h2>{{t 'checkouts.delayed_checkouts'}}</h2>
 <div class="row">
@@ -27,7 +34,9 @@
               <span class="name visible-xs-inline visible-sm-inline">{{t 'checkouts.status'}}:</span><span class="value responsive">{{checkout.statusString}}</span>
             </div>
           </div>
-          <div class="col-xs-12 col-md-1"><a class="btn btn-primary pull-right" href="#" role="button"><i class="fa fa-undo"></i></a></div>
+          {{#if checkout.renewableBool}}
+            <div class="col-xs-12 col-md-1"><a class="btn btn-primary pull-right" {{action renew checkout.checkout_id}} role="button"><i class="fa fa-undo"></i></a></div>
+          {{/if}}
         </div>
       </li>
       {{/each}}
@@ -64,7 +73,9 @@
               <span class="name visible-xs-inline visible-sm-inline">{{t 'checkouts.status'}}:</span><span class="value responsive">{{checkout.statusString}}</span>
             </div>
           </div>
-          <div class="col-xs-12 col-md-1"><a class="btn btn-primary pull-right" href="#" role="button"><i class="fa fa-undo"></i></a></div>
+          {{#if checkout.renewableBool}}
+            <div class="col-xs-12 col-md-1"><a class="btn btn-primary pull-right" {{action renew checkout.checkout_id}} role="button"><i class="fa fa-undo"></i></a></div>
+          {{/if}}
         </div>
       </li>
       {{/each}}

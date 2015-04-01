@@ -42,7 +42,10 @@ var TRANSLATIONS = {
         billed: 'Räkning',
         recall: 'Kö finns',
         recallOverdue: 'Försenad/Kö finns'
-      }
+      },
+      confirm_renew: "Är du säker på att du vill förnya lånet?",
+      renew_success: "Lånet förnyades.",
+      renew_error: "Förnyande av lån misslyckades."
     },
     requests: {
       pickup_requests: "För hämtning",
