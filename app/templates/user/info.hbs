@@ -1,59 +1,63 @@
-<h1>{{user.name}}</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-      <strong>{{t 'user.address'}}:</strong>
-    </div>
-    <div class="col-xs-9">
-      {{user.street}}<br/>
-      {{user.postal_code}} {{user.city}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      <strong>{{t 'user.phone_nr'}}:</strong>
-    </div>
-    <div class="col-xs-9">
-      {{user.phone_nr}}
+<div class="row">
+<div class="col-xs-12 col-md-8">
+<h2>{{user.name}}</h2>
+<div class="form-horizontal">
+  <h3>{{t 'user.address'}}</h3>
+  <div class="form-group">
+    <label for="street-adress" class="col-md-3 control-label">{{t 'user.street'}}:</label>
+    <div class="col-md-9">
+      <p class="form-control-static">{{user.street}}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-3">
-      <strong>{{t 'user.mobile_nr'}}:</strong>
-    </div>
-    <div class="col-xs-9">
-      {{user.mobile_nr}}
+  <div class="form-group">
+    <label for="postal-code" class="col-md-3 control-label">{{t 'user.postal_code'}}:</label>
+    <div class="col-md-9">
+      <p class="form-control-static">{{user.postal_code}}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-3">
-     <strong>{{t 'user.email'}}:</strong>
-    </div>
-    <div class="col-xs-9">
-      {{user.email}}
+  <div class="form-group">
+    <label for="city" class="col-md-3 control-label">{{t 'user.city'}}:</label>
+    <div class="col-md-9">
+      <p class="form-control-static">{{user.city}}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-3">
-     <strong>{{t 'user.communication_preference'}}:</strong>
-    </div>
-    <div class="col-xs-9">
-      {{user.communication_preferenceString}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-     <strong>{{t 'user.preferred_language'}}:</strong>
-    </div>
-    <div class="col-xs-9">
-      {{user.preferred_languageString}}
+
+  <h3>{{t 'user.phones'}}</h3>
+  <div class="form-group">
+    <label for="phone-number" class="col-md-3 control-label">{{t 'user.phone_nr'}}:</label>
+    <div class="col-md-9">
+      <p class="form-control-static">{{user.phone_nr}}</p>
     </div>
   </div>
-  <hr/>
-  <strong>{{t 'user.card_nr'}}</strong><br/>
-  {{user.barcode}}<br/>
-  <strong>{{t 'user.expiration_date'}}:</strong><br/>
-  {{format-date user.expiration_date}}<br/>
-  <strong>{{t 'user.user_type'}}:</strong><br/>
-  {{user.patron_type}}
+  <div class="form-group">
+    <label for="mobile-number" class="col-md-3 control-label">{{t 'user.mobile_nr'}}:</label>
+    <div class="col-md-9">
+      <p class="form-control-static">{{user.mobile_nr}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="col-md-3 control-label">{{t 'user.email'}}:</label>
+    <div class="col-md-9">
+      <p class="form-control-static">{{user.email}}</p>
+    </div>
+  </div>
+
+  <h3>{{t 'user.communication'}}</h3>
+  <div class="form-group">
+    <div class="col-sm-8">
+      <label for="communication-preference">{{t 'user.communication_preference'}}:</label>
+      <p class="form-control-static">{{user.communication_preferenceString}}</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-8">
+      <label for="prefered-language">{{t 'user.preferred_language'}}:</label>
+      <p class="form-control-static">{{user.preferred_languageString}}</p>
+    </div>
+  </div>
+
+  {{#link-to 'user.editinfo' class='btn btn-primary'}}{{t 'user.edit'}}{{/link-to}}
+
+</div></div>
 </div>

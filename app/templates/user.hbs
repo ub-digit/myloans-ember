@@ -2,9 +2,15 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
     <div class="list-group">
-      {{#link-to 'user.checkouts' class='list-group-item'}}{{t 'menu.checkouts'}}{{/link-to}}
-      {{#link-to 'user.requests' class='list-group-item'}}{{t 'menu.requests'}}{{/link-to}}
-      {{#link-to 'user.fines' class='list-group-item'}}{{t 'menu.fines'}}{{/link-to}}
+      {{#link-to 'user.checkouts' class='list-group-item'}}{{t 'menu.checkouts'}} 
+      {{#if model.delayedCheckouts}}({{t 'menu.delayeds_info'}}: {{model.delayedCheckouts.length}}){{/if}} 
+      {{/link-to}}
+      {{#link-to 'user.requests' class='list-group-item'}}{{t 'menu.requests'}}
+      {{#if model.pickupRequests}}({{t 'menu.pickups_info'}}: {{model.pickupRequests.length}}){{/if}} 
+      {{/link-to}}
+      {{#link-to 'user.fines' class='list-group-item'}}{{t 'menu.fines'}}
+      {{#if model.fines }}({{model.total_fine}} SEK){{/if}}
+      {{/link-to}}
       {{#link-to 'user.info' class='list-group-item'}}{{t 'menu.contactinfo'}}{{/link-to}}
       <a class="list-group-item" {{action logout}}>{{t 'menu.logout'}}</a>
       </div>
