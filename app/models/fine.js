@@ -4,7 +4,7 @@ export default Ember.Object.extend({
     this.set('collapsed', true);
   },
   typeString: function() {
-    return Ember.I18n.t("fines.types." + this.get('type'))
+    return Ember.I18n.t("fines.types." + this.get('type'));
   }.property('type'),
   isCollapsed: function() {
     return this.get('collapsed');

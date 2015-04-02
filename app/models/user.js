@@ -66,10 +66,10 @@ export default Ember.Object.extend({
     );
 },
   communication_preferenceString: function() {
-    return Ember.I18n.t("user.communication_preferences." + this.get('communication_preference'))
+    return Ember.I18n.t("user.communication_preferences." + this.get('communication_preference'));
   }.property('communication_preference'),
 
   preferred_languageString: function() {
-    return Ember.I18n.t("user.languages." + this.get('preferred_language'))
+    return Ember.I18n.t("user.languages." + this.get('preferred_language'));
   }.property('preferred_language')
 });

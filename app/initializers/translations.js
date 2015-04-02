@@ -1,5 +1,6 @@
 import Ember from 'ember';
-//import ENV from '../config/environment';
+import ENV from 'myloans-ember/config/environment';
+
 var TRANSLATIONS = {
   en: {
     other_lang: 'sv',
@@ -16,8 +17,8 @@ var TRANSLATIONS = {
     menu: {
       checkouts: "Checked Out",
       requests: "Requests",
-      fines: "Account",
-      contactinfo: "Contact",
+      fines: "Fines",
+      contactinfo: "Contact information",
       logout: "Logout",
       delayeds_info: "Overdue",
       pickups_info: "Pick-up"
@@ -59,7 +60,7 @@ var TRANSLATIONS = {
       confirm_delete: "Are you sure you want to cancel the request?" //Hittat på
     },
     fines: {
-      fines: "Account",
+      fines: "Fines",
       title: "Title",
       type: "Fee Type",
       added: "Posted",
@@ -99,7 +100,15 @@ var TRANSLATIONS = {
       postal_code: "Postal code",
       city: "City",
       phones: "Phone numbers and e-mail",
-      communication: "Communication from the library"
+      communication: "Communication from the library",
+      save: "Save",
+      cancel: "Cancel",
+      edit: "Edit",
+      errors: {
+        email: "You have to assign a valid e-mail address",
+        mobile: "You have to assign a valid mobile phone number",
+        email_and_mobile: "You have to assign a valid e-mail and mobile phone number"
+      }
     }
   },
   sv: {
@@ -118,7 +127,7 @@ var TRANSLATIONS = {
     menu: {
       checkouts: "Lånade",
       requests: "Beställda",
-      fines: "Förseningar",
+      fines: "Avgifter",
       contactinfo: "Kontaktuppgifter",
       logout: "Logga ut",
       delayeds_info: "försenade",
@@ -161,7 +170,7 @@ var TRANSLATIONS = {
       confirm_delete: "Är du säker på att du vill radera beställningen?"
     },
     fines: {
-      fines: "Förseningsavgifter",
+      fines: "Avgifter",
       title: "Titel",
       type: "Typ av avgift",
       added: "Tillagd",
@@ -221,7 +230,12 @@ Ember.View.reopen(Ember.I18n.TranslateableAttributes);
 var i18nInitializer = {
   name: 'i18n',
   initialize: function() {
-    var lang = 'sv';
+    var rootElement = Ember.$(ENV.APP.rootElement);
+    var lang = rootElement.data().lang;
+    if(!lang || lang !== 'sv') {
+      lang = 'en';
+    }
+    moment.locale(lang);
     var translation = Ember.$.extend(true, {}, TRANSLATIONS)[lang];
     Ember.I18n.translations = translation;
     Ember.I18n.allTranslations = TRANSLATIONS;

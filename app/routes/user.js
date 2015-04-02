@@ -16,25 +16,29 @@ export default Ember.Route.extend({
     var password = sessionStorage.getItem('password');
 
     return Ember.$.ajax({
-        type: 'GET',
-        url: ENV.APP.serviceURL + '/users/show',
-        data: {
-          username: username,
-          password: password
-        },
-        contentType: 'application/json'
-      }).then(function(response) {
-        return User.create(response.user);
+      type: 'GET',
+      url: ENV.APP.serviceURL + '/users/show',
+      data: {
+        username: username,
+        password: password
       },
-      function(error) {
-        console.log(error);
-        sessionStorage.removeItem('username');
-        sessionStorage.removeItem('password');
-        that.transitionTo('login');
-      });
+      contentType: 'application/json'
+    }).then(function(response) {
+      return User.create(response.user);
+    },
+    function(error) {
+      console.log(error);
+      sessionStorage.removeItem('username');
+      sessionStorage.removeItem('password');
+      that.transitionTo('login');
+    });
   },
   setupController: function(controller, model) {
     // To be able to access from specific controllers
     controller.set('model', model);
+
+    Ember.run.later(this, function() {
+      this.refresh();
+    } , 60000);
   }
 });

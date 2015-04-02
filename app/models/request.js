@@ -4,7 +4,7 @@ export default Ember.Object.extend({
     this.set('collapsed', true);
   },
   statusString: function() {
-    return Ember.I18n.t("requests.statuses." + this.get('status'))
+    return Ember.I18n.t("requests.statuses." + this.get('status'));
   }.property('status'),
   isCollapsed: function() {
     return this.get('collapsed');

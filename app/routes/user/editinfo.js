@@ -1,11 +1,9 @@
 import Ember from 'ember';
-import ENV from 'myloans-ember/config/environment';
 import Contactinfo from 'myloans-ember/models/contactinfo';
 
 export default Ember.Route.extend({
 
   model: function() {
-    var that = this;
     var user = this.modelFor('user');
     var contactinfo = Contactinfo.create({
       street: user.street, 
@@ -18,7 +16,7 @@ export default Ember.Route.extend({
       preferred_language: user.preferred_language,
       name: user.name
     });
-    return contactinfo
+    return contactinfo;
   },
   setupController: function(controller, model) {
     // To be able to access from specific controllers

@@ -39,6 +39,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     //ENV.APP.authenticationBaseURL = 'http://localhost:3000/';
+    ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
     ENV.APP.serviceURL = 'http://localhost:3000/v1';
   }
 

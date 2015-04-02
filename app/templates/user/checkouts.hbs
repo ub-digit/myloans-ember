@@ -25,10 +25,10 @@
             <div>
               <div {{bind-attr class=":title checkout.isCollapsed:collapsed"}}><a href=""{{action 'toggleCollapsed' checkout}}>{{checkout.title}}</a></div>
               <div class="notes"><span class="name">{{t 'checkouts.barcode'}}</span><span class="value">{{checkout.barcode}}</span></div>
-              <div class="notes"><span class="name">{{t 'checkouts.recallable_by'}}</span><span class="value">{{format-date checkout.recallable_by}}</span></div>
+              <div class="notes"><span class="name">{{t 'checkouts.recallable_by'}}</span><span class="value">{{format-date checkout.recallable_date}}</span></div>
             </div>
           </div>
-          <div class="col-xs-4 col-md-2">{{format-date checkout.due_date}}</div>
+          <div class="col-xs-4 col-md-2">{{format-date checkout.due_date}}<br/>({{checkout.dueDateRelative}})</div>
           <div class="col-xs-12 col-md-2">
             <div class="notes">
               <span class="name visible-xs-inline visible-sm-inline">{{t 'checkouts.status'}}:</span><span class="value responsive">{{checkout.statusString}}</span>
@@ -46,6 +46,7 @@
 {{/if}}
 
 <h2>{{t 'checkouts.current_checkouts'}}</h2>
+{{#if checkouts}}
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-unstyled">
@@ -64,10 +65,10 @@
             <div>
               <div {{bind-attr class=":title checkout.isCollapsed:collapsed"}}><a href=""{{action 'toggleCollapsed' checkout}}>{{checkout.title}}</a></div>
               <div class="notes"><span class="name">{{t 'checkouts.barcode'}}</span><span class="value">{{checkout.barcode}}</span></div>
-              <div class="notes"><span class="name">{{t 'checkouts.recallable_by'}}</span><span class="value">{{format-date checkout.recallable_by}}</span></div>
+              <div class="notes"><span class="name">{{t 'checkouts.recallable_by'}}</span><span class="value">{{format-date checkout.recallable_date}}</span></div>
             </div>
           </div>
-          <div class="col-xs-4 col-md-2">{{format-date checkout.due_date}}</div>
+          <div class="col-xs-4 col-md-2">{{format-date checkout.due_date}}<br/>({{checkout.dueDateRelative}})</div>
           <div class="col-xs-12 col-md-2">
             <div class="notes">
               <span class="name visible-xs-inline visible-sm-inline">{{t 'checkouts.status'}}:</span><span class="value responsive">{{checkout.statusString}}</span>
@@ -82,3 +83,4 @@
     </ul>
   </div>
 </div>
+{{/if}}

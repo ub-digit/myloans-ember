@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Em from 'ember';
 import ENV from 'myloans-ember/config/environment';
 
 export default Ember.Controller.extend({
@@ -28,31 +29,40 @@ export default Ember.Controller.extend({
 
       } else {
         console.log('Modellen aer valid!');
-       Ember.$.ajax({
-        type: 'PUT',
-        url: ENV.APP.serviceURL + '/users/update',
-        data: JSON.stringify({
-          username: username,
-          password: password,
-          city: that.get('model.city'),
-          street: that.get('model.street'),
-          postal_code: that.get('model.postal_code'),
-          phone_nr: that.get('model.phone_nr'),
-          mobile_nr: that.get('model.mobile_nr'),
-          email: that.get('model.email'),
-          communication_preference: that.get('model.communication_preference_id'),
-          preferred_language: that.get('model.preferred_language')
-        }),
-        contentType: 'application/json',
-        dataType: 'json'
-      }).then(function(response) {
-        console.log(response);
-      },
-      function(response) {
-        console.log(response);
+        Ember.$.ajax({
+          type: 'PUT',
+          url: ENV.APP.serviceURL + '/users/update',
+          data: JSON.stringify({
+            username: username,
+            password: password,
+            city: that.get('model.city'),
+            street: that.get('model.street'),
+            postal_code: that.get('model.postal_code'),
+            phone_nr: that.get('model.phone_nr'),
+            mobile_nr: that.get('model.mobile_nr'),
+            email: that.get('model.email'),
+            communication_preference: that.get('model.communication_preference_id'),
+            preferred_language: that.get('model.preferred_language')
+          }),
+          contentType: 'application/json',
+          dataType: 'json'
+        }).then(function() {
+          that.set('user.city', that.get('model.city'));
+          that.set('user.street', that.get('model.street'));
+          that.set('user.postal_code', that.get('model.postal_code'));
+          that.set('user.phone_nr', that.get('model.phone_nr'));
+          that.set('user.mobile_nr', that.get('model.mobile_nr'));
+          that.set('user.email', that.get('model.email'));
+          that.set('user.preferred_language', that.get('model.preferred_language'));
+          that.set('user.communication_preference', that.get('model.communication_preference_id').toString());
+
+          that.transitionToRoute('user.info');
+        },
+        function(response) {
+          console.log(response);
+        }
+        );
       }
-      )
     }
   }
-}
 });

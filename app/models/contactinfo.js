@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Em from 'ember';
 export default Ember.Object.extend({
   communication_preference_id: function() {
     return +this.get('communication_preference');
