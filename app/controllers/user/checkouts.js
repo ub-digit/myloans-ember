@@ -5,12 +5,12 @@ export default Ember.Controller.extend({
   needs: "user",
   
   checkouts: function() {
-    return this.get('controllers.user.model.checkouts');
-  }.property('controllers.user.model.checkouts'),
+    return this.get('controllers.user.model.notDelayedCheckouts');
+  }.property('controllers.user.model.checkouts.@each'),
 
   delayedCheckouts: function() {
     return this.get('controllers.user.model.delayedCheckouts');
-  }.property('controllers.user.model.delayedCheckouts'),
+  }.property('controllers.user.model.checkouts.@each'),
 
   actions: {
     toggleCollapsed: function(obj) {
@@ -47,13 +47,12 @@ export default Ember.Controller.extend({
         }).then(function(response) {
           if (response.success === true) {
             console.log(response.checkout);
-            if (list_type === "checkouts") {
-              that.get('controllers.user.model.checkouts').removeObject(checkout_object);
-            }
-            else {
-              that.get('controllers.user.model.delayedCheckouts').removeObject(checkout_object);
-            }
-            that.get('controllers.user.model.checkouts').addObject(response.checkout);
+
+            checkout_object.set('due_date', response.checkout.due_date);
+            checkout_object.set('status', response.checkout.status);
+            checkout_object.set('renewable', response.checkout.renewable);
+            checkout_object.set('recallable_date', response.checkout.recallable_date);
+
             that.set('message', Ember.I18n.t("checkouts.renew_success"));
           } 
         },

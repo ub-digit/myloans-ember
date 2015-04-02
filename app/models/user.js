@@ -6,24 +6,13 @@ import Fine from 'myloans-ember/models/fine';
 export default Ember.Object.extend({
   init: function() {
     var checkoutsArray = Ember.A([]);
-    var delayedCheckoutsArray = Ember.A([]);
+    //var delayedCheckoutsArray = Ember.A([]);
     this.get('checkouts').forEach(function(entry) {
-      if (entry.status === 'checkedOut') {
-        checkoutsArray.pushObject(Checkout.create(entry));
-      }else{
-        delayedCheckoutsArray.pushObject(Checkout.create(entry));
-      }
+      checkoutsArray.pushObject(Checkout.create(entry));
     });
 
     this.set('checkouts', Ember.ArrayProxy.extend(Ember.SortableMixin).create({
       content: checkoutsArray,
-      sortProperties: ['due_date'],
-      sortAscending: true
-    })
-    );
-
-    this.set('delayedCheckouts', Ember.ArrayProxy.extend(Ember.SortableMixin).create({
-      content: delayedCheckoutsArray,
       sortProperties: ['due_date'],
       sortAscending: true
     })
@@ -64,12 +53,24 @@ export default Ember.Object.extend({
       sortAscending: true
     })
     );
-},
+  },
   communication_preferenceString: function() {
     return Ember.I18n.t("user.communication_preferences." + this.get('communication_preference'));
   }.property('communication_preference'),
 
   preferred_languageString: function() {
     return Ember.I18n.t("user.languages." + this.get('preferred_language'));
-  }.property('preferred_language')
+  }.property('preferred_language'),
+
+  notDelayedCheckouts: function() {
+    return this.get('checkouts').filter(function(item, index, enumerable){
+      return item.status === 'checkedOut';
+    });
+  }.property('checkouts.@each'),
+
+  delayedCheckouts: function() {
+    return this.get('checkouts').filter(function(item, index, enumerable){
+      return item.status !== 'checkedOut';
+    });
+  }.property('checkouts.@each')
 });
