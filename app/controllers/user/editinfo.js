@@ -23,26 +23,25 @@ export default Ember.Controller.extend({
       var that = this;
       var username = sessionStorage.getItem('username');
       var password = sessionStorage.getItem('password');
-      console.log(this.get('model'));
-      console.log(this.get('model.inValid'))
       if (this.get('model.inValid')) {
         console.log("Modellen is Invalid!");
 
       } else {
+        console.log('Modellen aer valid!');
        Ember.$.ajax({
         type: 'PUT',
         url: ENV.APP.serviceURL + '/users/update',
         data: JSON.stringify({
           username: username,
           password: password,
-          city: this.get('city'),
-          street: this.get('street'),
-          postal_code: this.get('postal_code'),
-          phone_nr: this.get('phone_nr'),
-          mobile_nr: this.get('mobile_nr'),
-          email: this.get('email'),
-          communication_preference: this.get('communication_preference_id'),
-          preferred_language: this.get('preferred_language')
+          city: that.get('model.city'),
+          street: that.get('model.street'),
+          postal_code: that.get('model.postal_code'),
+          phone_nr: that.get('model.phone_nr'),
+          mobile_nr: that.get('model.mobile_nr'),
+          email: that.get('model.email'),
+          communication_preference: that.get('model.communication_preference_id'),
+          preferred_language: that.get('model.preferred_language')
         }),
         contentType: 'application/json',
         dataType: 'json'
