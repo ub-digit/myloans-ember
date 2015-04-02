@@ -12,7 +12,8 @@ var TRANSLATIONS = {
       title: "Log in",
       username: "User name",
       password: "Password",
-      login_action: "Log in"
+      login_action: "Log in",
+      info: "Log in to see your loans and fines. You can also manage your contact information."
     },
     menu: {
       checkouts: "Checked Out",

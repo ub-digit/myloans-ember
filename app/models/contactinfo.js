@@ -39,7 +39,7 @@ export default Ember.Object.extend({
         return false;
       }
     } else {
-      return false;
+      return true;
     }
   }.property('email', 'communication_preference_id'),
 
