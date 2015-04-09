@@ -16,4 +16,5 @@
 npm-debug.log
 testem.log
 
-/config/environment.js
+environment.js
+deploy.sh

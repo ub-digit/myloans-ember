@@ -56,13 +56,10 @@ esac
 # Location: production: /apps/appName/, test: /apps/test/appName
 # Domain name: production: appName.topDomain, test: appName-test.topDomain
 # -------------------------------------------------- #
-echo "environment:${environment}:"
 if [[ !"$environment" = "production" ]]; then
-  echo "environment:${environment}: wasn't 'production'"
   remote_app_location="/apps/$environment/$appname"
   app_domain_name="$app_domain_name-$environment.$top_domain"
 else
-  echo "environment:${environment}: is 'production'"
   remote_app_location="/apps/$appname"
   app_domain_name="$app_domain_name.$top_domain"
 fi
