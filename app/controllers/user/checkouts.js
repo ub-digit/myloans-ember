@@ -31,36 +31,31 @@ export default Ember.Controller.extend({
         }  
       }
 
-      var should_renew = confirm(Ember.I18n.t("checkouts.confirm_renew") + ' (' + checkout_object.title + ')');
 
-      if (should_renew) {
-        Ember.$.ajax({
-          type: 'PUT',
-          url: ENV.APP.serviceURL + '/users/renew',
-          data: JSON.stringify({
-            username: username,
-            password: password,
-            checkout_id	: checkoutId
-          }),
-          contentType: 'application/json',
-          dataType: 'json'
-        }).then(function(response) {
-          if (response.success === true) {
-            console.log(response.checkout);
+      Ember.$.ajax({
+        type: 'PUT',
+        url: ENV.APP.serviceURL + '/users/renew',
+        data: JSON.stringify({
+          username: username,
+          password: password,
+          checkout_id	: checkoutId
+        }),
+        contentType: 'application/json',
+        dataType: 'json'
+      }).then(function(response) {
+        if (response.success === true) {
+          checkout_object.set('due_date', response.checkout.due_date);
+          checkout_object.set('status', response.checkout.status);
+          checkout_object.set('renewable', response.checkout.renewable);
+          checkout_object.set('recallable_date', response.checkout.recallable_date);
 
-            checkout_object.set('due_date', response.checkout.due_date);
-            checkout_object.set('status', response.checkout.status);
-            checkout_object.set('renewable', response.checkout.renewable);
-            checkout_object.set('recallable_date', response.checkout.recallable_date);
-
-            that.set('message', Ember.I18n.t("checkouts.renew_success"));
-          } 
-        },
-        function(error) {
-          console.log(error);
-          that.set('error', Ember.I18n.t("checkouts.renew_error"));
-        });
-      }
+          that.set('message', Ember.I18n.t("checkouts.renew_success"));
+        } 
+      },
+      function(error) {
+        console.log(error);
+        that.set('error', Ember.I18n.t("checkouts.renew_error"));
+      });
     }
   }
 
