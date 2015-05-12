@@ -2,9 +2,10 @@ import Ember from 'ember';
 import ENV from 'myloans-ember/config/environment';
 
 export default Ember.Controller.extend({
-
   actions: {
     login: function() {
+      $("body").addClass("loading");
+
       var that = this;
       //console.log(this.get('username'));
       var username = this.get('username');
@@ -26,6 +27,8 @@ export default Ember.Controller.extend({
         } 
       },
       function(error) {
+        $("body").removeClass("loading");
+
         console.log(error);
         sessionStorage.removeItem('username');
         sessionStorage.removeItem('password');

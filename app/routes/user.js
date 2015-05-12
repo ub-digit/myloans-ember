@@ -23,7 +23,8 @@ export default Ember.Route.extend({
         password: password
       },
       contentType: 'application/json'
-    }).then(function(response) {
+    }).then(function(response) {    
+      $("body").removeClass("loading");
       return User.create(response.user);
     },
     function(error) {
